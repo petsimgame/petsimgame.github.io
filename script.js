@@ -68,10 +68,25 @@ function playWithPet() {
 
   // 更新遊戲次數
   gameCount++;
-
+  // 更新顯示
+  document.getElementById("gameCount").innerText = gameCount;
   // 更新等級
   updateLevel();
 }
+
+// 餵食
+function feedPet() {
+  // 餵食邏輯
+  // ...
+
+  // 更新餵食次數
+  feedCount++;
+  // 更新顯示
+  document.getElementById("feedCount").innerText = feedCount;
+  // 更新等級
+  updateLevel();
+}
+
 
 // 餵食
 function feedPet() {
