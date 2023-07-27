@@ -58,8 +58,11 @@ let feedCount = 0;
 // 更新等級和顯示到網頁上
 function updateLevel() {
   // 每10次遊戲和餵食增加一等級
-  level = 1 + Math.floor((gameCount + feedCount) / 10);
+  let totalActions = gameCount + feedCount;
+  level = Math.floor(totalActions / 10) + 1;
   document.getElementById("level").innerText = level;
+}
+
 }
 // 遊戲
 function playWithPet() {
@@ -110,7 +113,8 @@ feedCount = savedFeedCount ? parseInt(savedFeedCount) : 0;
 level = savedLevel ? parseInt(savedLevel) : 1;
 
 // 更新等級和顯示到網頁上
-updateLevel();
+function updateLevel() {
+
 
 // 在遊戲結束或頁面關閉前將數據保存到本地存儲
 function saveData() {
