@@ -57,11 +57,6 @@ let feedCount = 0;
 
 // 更新等級和顯示到網頁上
 function updateLevel() {
-  // 每10次遊戲和餵食增加一等級
-  let totalActions = gameCount + feedCount;
-  level = Math.floor(totalActions / 10) + 1;
-  document.getElementById("level").innerText = level;
-}
 
 }
 // 遊戲
