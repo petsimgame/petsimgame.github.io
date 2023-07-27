@@ -50,5 +50,62 @@ function decreaseValues() {
 
 // 設定計時器，每10秒執行一次遞減
 setInterval(decreaseValues, 10000);
+// 定義等級、遊戲次數和餵食次數的變數
+let level = 1;
+let gameCount = 0;
+let feedCount = 0;
+
+// 更新等級和顯示到網頁上
+function updateLevel() {
+  // 每10次遊戲和餵食增加一等級
+  level = 1 + Math.floor((gameCount + feedCount) / 10);
+  document.getElementById("level").innerText = level;
+}
+// 遊戲
+function playWithPet() {
+  // 遊戲邏輯
+  // ...
+
+  // 更新遊戲次數
+  gameCount++;
+
+  // 更新等級
+  updateLevel();
+}
+
+// 餵食
+function feedPet() {
+  // 餵食邏輯
+  // ...
+
+  // 更新餵食次數
+  feedCount++;
+
+  // 更新等級
+  updateLevel();
+}
+// 獲取本地存儲的遊戲次數、餵食次數和等級
+const savedGameCount = localStorage.getItem("gameCount");
+const savedFeedCount = localStorage.getItem("feedCount");
+const savedLevel = localStorage.getItem("level");
+
+// 如果有保存的數據，則使用它們來初始化變數，否則使用預設值
+gameCount = savedGameCount ? parseInt(savedGameCount) : 0;
+feedCount = savedFeedCount ? parseInt(savedFeedCount) : 0;
+level = savedLevel ? parseInt(savedLevel) : 1;
+
+// 更新等級和顯示到網頁上
+updateLevel();
+
+// 在遊戲結束或頁面關閉前將數據保存到本地存儲
+function saveData() {
+  localStorage.setItem("gameCount", gameCount);
+  localStorage.setItem("feedCount", feedCount);
+  localStorage.setItem("level", level);
+}
+
+window.addEventListener("beforeunload", function() {
+  saveData();
+});
 
 updateStatus();
