@@ -1,5 +1,6 @@
 let hunger = 100;
 let happiness = 100;
+let petName = "寵物";
 
 function updateStatus() {
   document.getElementById("hunger").innerText = hunger;
@@ -25,5 +26,29 @@ function playWithPet() {
     alert("寵物已經很開心了，不想再玩了！");
   }
 }
+
+function changePetName() {
+  const inputElement = document.getElementById("nameInput");
+  const newName = inputElement.value.trim();
+
+  if (newName === "") {
+    alert("請輸入有效的名字！");
+  } else {
+    petName = newName;
+    document.getElementById("petName").innerText = petName;
+    alert("寵物的名字已成功更改！");
+  }
+
+  inputElement.value = "";
+}
+
+function decreaseValues() {
+  hunger -= 5;
+  happiness -= 5;
+  updateStatus();
+}
+
+// 設定計時器，每10秒執行一次遞減
+setInterval(decreaseValues, 10000);
 
 updateStatus();
