@@ -2,6 +2,11 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f1f1f1;
+     background-image: url("background.jpg"); /* 背景圖片的路徑 */
+  background-size: cover; /* 背景圖片的大小設定，cover表示完全覆蓋整個視窗 */
+  background-repeat: no-repeat; /* 背景圖片不重複 */
+  background-position: center; /* 將背景圖片置中 */
+}
   }
   
   .container {
