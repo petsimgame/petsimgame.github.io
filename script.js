@@ -1,7 +1,6 @@
+let petName = "寵物"; // 這裡預設為寵物，玩家選擇寵物後會更新名字
 let hunger = 100;
 let happiness = 100;
-let petName = "寵物";
-
 function updateStatus() {
   document.getElementById("hunger").innerText = hunger;
   document.getElementById("happiness").innerText = happiness;
