@@ -50,7 +50,7 @@ function changePet() {
   const petSelect = document.getElementById("petSelect");
   const selectedPet = petSelect.value;
 
-  // 更新目前寵物的名字
+  // 更新目前寵物的名字和圖片路徑
   switch (selectedPet) {
     case "dog":
       petName = "狗";
@@ -66,6 +66,7 @@ function changePet() {
       break;
     default:
       petName = "寵物";
+      document.getElementById("petImage").src = ""; // 沒有選擇寵物時清空圖片
   }
 
   // 重新設置寵物狀態
